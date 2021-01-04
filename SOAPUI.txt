@@ -1,0 +1,4 @@
+ SOAPUI 
+  一款专业的 web service 的测试软件
+  通过 soap/http 来检查,调用,实现 Web Service的功能/负载/符合性测试
+

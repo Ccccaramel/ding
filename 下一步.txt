@@ -1,0 +1,5 @@
+SSM了解下
+SSM = Spring + Spring MVC/ Spring Boot + MyBatis
+
+spring cloud，spring mvc，spring
+zookeeper，redis，maven，设计模式，java基础

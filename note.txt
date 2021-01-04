@@ -1,2 +1,0 @@
-SSM了解下
-SSM = Spring + Spring MVC/ Spring Boot + MyBatis
