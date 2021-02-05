@@ -1,0 +1,76 @@
+武汉
+  腾讯-后端开发工程师
+    1年
+    java C++ golang
+    linux/unix
+    tcp/ip
+    socket
+    mysql mongodb
+    SQL
+    分布式系统设计
+    1.2-2.2
+  阿里-java
+    java
+    jvm web+缓存
+    分布式架构 消息中间件等
+    nosql mq cache
+    tcp/ip
+    高并发
+    2.5-4.5
+  oppo-高级java服务端工程师
+    J2EE规范 设计模式
+    sql mysql 分布式存储
+    zk dubbo redis spring MyBatis
+    2.5-4.5
+  腾讯-go/java后台开发工程师
+    java c/c++ golang
+    tcp/ip
+    算法 数据结构 设计模式 多线程 分布式
+    DB操作
+    1.5-3.0
+  xx-java开发工程师
+    java
+    spring mybatis springMVC
+    mysql
+    linux
+    1.4-1.7
+  阿里-java
+    java
+    分布式系统
+    分布式框架 中间件 数据库
+    2.0-3.0
+  腾讯-后端开发工程师
+    linux
+    http+grpc协议
+    java
+    tcp/ip
+    算法 数据结构 网络 多线程
+    1.5-3.0
+  华为-java工程师
+    java
+    设计模式
+    开源框架(spring springMVC mybatis)
+    微服务(servicecomb/dubbo/springcloud)
+    中间件/工具/软件(redis zookeeper elk nginx kafka mq)
+    mysql postgresql
+    maven gradle svn git
+    linux
+    1.5-3.0
+  字节跳动-后台研发工程师
+    java
+    GNU linux sql mysql
+    memcached/redis mongoDB nosql
+    2.5-5.0
+  腾讯-java
+    java
+    linux
+    mysql
+    分布式
+    hadoop
+    cdp营销系统经验
+    1.5-3.0
+  华为-云应用后端开发工程师
+    java
+    spring/springBoot/springCloud redis/kafka
+    mysql+mybatis
+    1.3-2.6
