@@ -1,0 +1,125 @@
+******git******
+Git 是一个开源的分布式版本控制系统
+
+☀ git 与 svn 的区别
+git 不仅仅是一个版本控制系统,它也是一个内容管理系统,工作管理系统
+            git          svn
+分布式       √            ×
+存储方式    元数据        文件
+分支                     一个分支一个目录
+全局版本号   有           无
+内容完整性   优(SHA-1)
+
+☀工作流程
+资源克隆至本地
+对本地资源增删改
+有新版本则需对本地更新
+查看本地修改并提交
+可撤回并再次提交
+
+☀工作区
+本地资源所在目录
+
+☀暂存区(stage/index)
+存放在 .git 目录下的 index 文件,也称为索引
+
+☀版本库
+工作区的一个隐藏目录 .git
+它不算工作区,而是 git 的版本库
+
+******创建仓库******
+git init 
+  初始化一个 git 仓库,生成一个 .git 目录
+  该目录包含了资源的所有元数据
+git init [folderName]
+  指定目录作为 git 仓库
+
+******add******
+通过 add 告诉 git
+哪些数据需要纳入版本控制并进行跟踪
+
+git add [fileName]
+
+******clone******
+从现有的 git 仓库拉取资源
+
+git clone [address]
+  拉取至当前文件夹下
+git clone [address] [directory]
+  新建一个 directory 文件夹,并拉取至此文件夹下
+
+******config******
+查看 git 配置
+
+git config --list
+  显示当前 git 配置信息
+
+git config -e
+  编辑 git 配置文件(针对当前仓库)
+git config -e --global
+  编辑 git 配置文件(针对系统上所有仓库)
+
+git config --global user.name "[name]"
+  修改提交时的用户名
+git config --global user.email [email]
+  修改提交时的用户邮箱
+
+******stash******
+当想要从一个分支切换到另一个分支的时候
+且不想提交当前的分支的改动(有改动的情况下不提交是不允许切换分支的)
+你就可使用 stash 将改动缓存
+从而使你可以切换分支
+当你想切换回来时再通过 apply 将改动还原回来
+
+git statsh save "[save meseage]"
+  将改动缓存并添加备注,同时将本分支还原
+
+git stash list
+  显示所有已缓存的缓存,含有缓存标识
+
+git stash show
+  显示第一个缓存
+git stash show @{[缓存标识]}
+  显示指定缓存
+
+git stash show -p
+  显示第一个缓存的改动
+git stash show stash{[缓存标识]} -p
+  显示指定缓存的改动
+
+git stash apply
+  将第一个缓存应用到分支上,但不会删除该缓存
+git stash apply stash{[缓存标识]}
+  应用指定缓存但不会删除该缓存
+
+git stash pop
+  将第一个缓存应用到分支上并删除该缓存
+git stash pop stash@{[缓存标识]}
+  应用指定缓存并删除
+
+git stash drop stash@{缓存标识}
+  删除指定缓存
+
+git stash clear
+  删除所有缓存
+
+git branch
+  查看本地所有分支
+
+git branch -r
+  查看远程所有分支
+
+git branch -a
+  查看本地+远程所有分支
+
+git checkout [branchName]
+  切换至指定分支
+  若 branchName 不存在则拉取 master 并重命名为 branchName
+
+git checkout -b [branchName]
+  创建新分支/复制远程分支至本地并切换至此分支
+  若 branchName 不存在则拉取 master 并重命名为 branchName 并切换至此分支
+
+☀新增的文件是不会被存入缓存的
+  新增文件不是版本控制中的文件
+  你需要先执行 git add 将其加入版本控制中再缓存
