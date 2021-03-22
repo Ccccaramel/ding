@@ -66,12 +66,12 @@ git config --global user.email [email]
 
 ******stash******
 当想要从一个分支切换到另一个分支的时候
-且不想提交当前的分支的改动(有改动的情况下不提交是不允许切换分支的)
+且不想提交当前的分支的改动(有改动的情况下不提交是不允许切换分支的, 需要执行 git add .)
 你就可使用 stash 将改动缓存
 从而使你可以切换分支
 当你想切换回来时再通过 apply 将改动还原回来
 
-git statsh save "[save meseage]"
+git stash save "[save meseage]"
   将改动缓存并添加备注,同时将本分支还原
 
 git stash list
@@ -89,7 +89,7 @@ git stash show stash{[缓存标识]} -p
 
 git stash apply
   将第一个缓存应用到分支上,但不会删除该缓存
-git stash apply stash{[缓存标识]}
+git stash apply [缓存标识]
   应用指定缓存但不会删除该缓存
 
 git stash pop
@@ -102,6 +102,10 @@ git stash drop stash@{缓存标识}
 
 git stash clear
   删除所有缓存
+
+Q:误删了 stash 怎么办?
+A:git log --graph --oneline --decorate $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+  git stash apply [id]
 
 git branch
   查看本地所有分支
@@ -119,6 +123,9 @@ git checkout [branchName]
 git checkout -b [branchName]
   创建新分支/复制远程分支至本地并切换至此分支
   若 branchName 不存在则拉取 master 并重命名为 branchName 并切换至此分支
+
+git reset --hard HEAD
+  清空本分支的所有修改(回到创建该分支或最后一次 commit 的状态)
 
 ☀新增的文件是不会被存入缓存的
   新增文件不是版本控制中的文件
