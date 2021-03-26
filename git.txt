@@ -110,6 +110,9 @@ A:git log --graph --oneline --decorate $( git fsck --no-reflog | awk '/dangling 
 git branch
   查看本地所有分支
 
+git branch -vv
+  显示本地分支及其详细信息
+
 git branch -r
   查看远程所有分支
 
@@ -121,12 +124,24 @@ git checkout [branchName]
   若 branchName 不存在则拉取 master 并重命名为 branchName
 
 git checkout -b [branchName]
-  创建新分支/复制远程分支至本地并切换至此分支
-  若 branchName 不存在则拉取 master 并重命名为 branchName 并切换至此分支
+  以当前分支创建分支命名为 branchName 并切换至此分支
+
+git checkout -b [branchName] origin/[originBranchName]
+  以远程分支[originBranchName]创建本地分支命名为 branchName 并切换至此分支
 
 git reset --hard HEAD
   清空本分支的所有修改(回到创建该分支或最后一次 commit 的状态)
 
+git branch -d [branchName]
+  删除指定本地分支
+  *需要切换至其它分支
+
+git remote prune origin
+  刷新本地远程分支目录结构
+
 ☀新增的文件是不会被存入缓存的
   新增文件不是版本控制中的文件
   你需要先执行 git add 将其加入版本控制中再缓存
+
+Q:git错误：Unlink of file 'xxx' failed.Should I try again?
+A:关闭编辑 git 维护管理的代码相关的软件即可 
