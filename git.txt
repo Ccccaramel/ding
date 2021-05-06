@@ -40,6 +40,21 @@ git init [folderName]
 
 git add [fileName]
 
+******commit******
+将暂存区内容添加到本地仓库中
+
+git commit -m "[备注信息]"
+  提交暂存区到本地仓库中
+
+git commit [fileName1] [fileName2] [...] -m "[备注信息]"
+  将暂存区的指定文件提交到本地仓库
+
+-a
+  修改文件后不需要执行 git add 命令,直接来提交
+
+git commit -a
+  将变更直接提交到本地仓库
+
 ******clone******
 从现有的 git 仓库拉取资源
 
@@ -51,18 +66,49 @@ git clone [address] [directory]
 ******config******
 查看 git 配置
 
+仓库级别 local 优先级最高
+用户级别 global 优先级次之
+系统级别 system 优先级最低
+
 git config --list
   显示当前 git 配置信息
 
 git config -e
   编辑 git 配置文件(针对当前仓库)
+  退出编辑:
+    输入 :q 回车即可
+
 git config -e --global
   编辑 git 配置文件(针对系统上所有仓库)
 
+git config --local -l
+git config --global -l
+git config --system -l
+  查看仓库(必须进入到具体仓库的目录下)/用户/系统配置
+
+git config -l
+  查看所有的配置信息
+
 git config --global user.name "[name]"
   修改提交时的用户名
+
 git config --global user.email [email]
   修改提交时的用户邮箱
+
+git config --local --add [section].[key] [value]
+git config --global --add [section].[key] [value]
+git config --system --add [section].[key] [value]
+  增加配置项(默认添加在 local 配置中)
+
+git config --local --get [section].[key]
+git config --global --get [section].[key]
+git config --system --get [section].[key]
+  获取配置项(默认获取 local 配置中的内容)
+
+git config --local --unset [section].[key]
+git config --global --unset [section].[key]
+git config --system --unset [section].[key]
+  删除配置项(默认获取 local 配置中的内容)
 
 ******stash******
 当想要从一个分支切换到另一个分支的时候
@@ -119,6 +165,17 @@ git branch -r
 git branch -a
   查看本地+远程所有分支
 
+git branch -d [branchName]
+git branch -D [branchName]
+  删除指定本地分支
+  *需要先切换至其它分支
+
+git branch -m [oldBranchName] [newBranchName]
+  本地分支重命名
+
+Q:如何重命名远程分支?
+A:没有相应的 git 命令,只能先重命名与本地对应的分支并删除该远程分支,再将重命名后的本地分支 push 上去
+
 git checkout [branchName]
   切换至指定分支
   若 branchName 不存在则拉取 master 并重命名为 branchName
@@ -132,16 +189,60 @@ git checkout -b [branchName] origin/[originBranchName]
 git reset --hard HEAD
   清空本分支的所有修改(回到创建该分支或最后一次 commit 的状态)
 
-git branch -d [branchName]
-  删除指定本地分支
-  *需要切换至其它分支
+git push origin --delete [branchName]
+git push origin :[branchName]
+  删除远程指定分支
 
 git remote prune origin
   刷新本地远程分支目录结构
 
+git merge --abort
+  取消合并
+
+******reset******
+用于回退版本
+git reset [--soft|--mixed|--hard] [HEAD]
+--mixed 为默认,可以不带参数,用于重置暂存区的文件与上一次的提交保持一致,工作区内容保持不变
+git resst [HEAD]
+
+git reset HEAD^
+  回退所有内容到上一个版本
+
+git reset HEAD^ xxx.xxx
+  回退指定文件 xxx.xxx 的版本到上一个版本
+
+git reset xxxxxxxxxx
+  回退到指定版本 xxxxxxxxxxx  
+
+git reset --soft HEAD~3
+  回退上上上一个版本
+
+git reset --head HEAD
+  撤销工作区中所有未提交的修改内容,将暂存区与工作区都回到上一次版本,并删除之前的所有信息提交
+  
+git reset --head xxxxxxxxxx
+  回退到某个版本回退点之前的所有信息
+
+git reset --head origin/master
+  将本地的状态回退到和远程一样
+
+HEAD / HEAD~0
+  当前版本
+HEAD^ / HEAD~1
+  上一个版本
+HEAD^^ / HEAD^2
+  上上一个版本
+HEAD^^^ / HEAD^3
+  上上上一个版本
+...
+
+
 ☀新增的文件是不会被存入缓存的
   新增文件不是版本控制中的文件
-  你需要先执行 git add 将其加入版本控制中再缓存
+  你需要先执行 git add . 将其加入版本控制中再缓存
+
+git reflog
+  查看提交信息
 
 Q:git错误：Unlink of file 'xxx' failed.Should I try again?
 A:关闭编辑 git 维护管理的代码相关的软件即可 

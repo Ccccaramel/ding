@@ -1,0 +1,7 @@
+镜像
+  https://mirrors.cnnic.cn/
+  虚拟机安装 CentOS
+    安装源要与版本相匹配,选择 在网络上 ,路径选取样例如下
+      https://mirrors.cnnic.cn/centos/8.3.2011/isos/x86_64/
+
+hp VM root 密码:123123123

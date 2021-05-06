@@ -61,21 +61,57 @@ POM
     6.项目开发者列表
     7.相关邮件列表信息
   在创建 POM 之前,我们需要描述项目组(groupId),项目的唯一ID
+    <!-- 工程的根标签 -->
     <project xmlns = "http://maven.apache.org/POM/4.0.0"
       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
       http://maven.apache.org/xsd/maven-4.0.0.xsd">
       
       <!-- 模型版本 -->
       <modelVersion>4.0.0</modeVersion>
-      <!-- 公司或组织的唯一标志,并且配置时生成的路径也是由此生成的
+      <!-- 工程组的标识,公司或组织的唯一标志,并且配置时生成的路径也是由此生成的
         如 com.companyname.project-group, maven 会将该项目打包成的 jar 包放入本地路径: /com/companyname/project-group -->
       <groupId>com.companyname.project-group</groupId>
 
-      <!-- 项目的唯一 ID ,一个 groupId 下面可能有多个项目,就是靠 artifactId 来区分的 -->
+      <!-- 工程版本号,项目的唯一 ID ,一个 groupId 下面可能有多个项目,用来区分不同的版本 -->
       <artifactId>project</artifactId>
 
       <!-- 版本号 -->
       <version>1.0</version>
     </project>
+  所有 POM 文件都需要 project 元素和三个必须字段: groupId artifactId version
+  父(Super)POM
+    它是 Maven 默认的 POM
+    所有的 POM 都继承自一个父 POM(无论是否有显式定义)
+    父 POM 包含了一些可以被继承的默认设置
+    因此当 Maven 发现需要下载 POM 中的依赖时,它会到 Super POM 中配置的默认仓库
+      http://repo1.maven.org/maven2
+    去下载
+     Maven 使用 effective POM(Super POM 加上工程自己的配置)来执行相关的目标
+    它帮助开发者在 pom.xml 中做尽可能少的配置,当然这些配置可以被重写
+    使用以下命令查看 Super POM 默认配置
+      mvn help:effective-pom 
+    创建流程
+      创建目录 MVN/project
+      创建 pom.xml ,内容如下
+        <project xmlns="http://maven.apache.org/POM/4.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xis:schemaLocation="http://maven.apache.org/POM/4.0.0
+          http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+          <!--模型版本-->
+          <modelVersion>4.0.0</modelVersion>
+          <!--标识-->
+          <groupId>com.companyname.project.group</groupId>
+          <!-- 项目唯一ID -->
+          <artifactId>project</artifactId>
+          <!-- 版本号 -->
+          <version>1.0</version>
+
+        </project>
+      控制台进入 MVN/project 目录,执行下述命令
+        mvn help:effective-pom
+       Maven 将会开始处理并显示 effective-pom
+      
+      创建
 
 IDEA 配置 maven
