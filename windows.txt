@@ -1,6 +1,6 @@
 Q:电脑黑屏如何解决?
 A:可能误关 explore.exe 进程
-  Ctrl+Alt+Del -> 任务管理器 -> 输入 explore.exe -> 点击确定即可
+  Ctrl+Alt+Del -  任务管理器 -  输入 explore.exe -  点击确定即可
 
 显示系统时间
   time
@@ -8,3 +8,32 @@ A:可能误关 explore.exe 进程
 显示系统日期
   date
   date /t
+
+systeminfo
+  查看电脑配置
+
+ipconfig
+  显示信息
+ipconfig /all
+  显示详细信息
+ipconfig /renew
+  更新所有适配器
+ipconfig /renew EL*
+  更新所有名称以 EL 开头的连接
+ipconfig /release *Con*
+  释放所有匹配的连接,例如“有线以太网连接 1”或“有线以太网连接 2”
+ipconfig /allcompartments
+  显示有关所有隔离舱的信息
+ipconfig /allcompartments /all
+  显示有关所有隔离舱的详细信息
+
+shutdown -s -t 60
+  60秒后关机
+logoff
+  注销命令
+tsshutdn
+  60秒后关机
+shutdown -s -f
+  强制关机
+shutdown -a
+  取消关机命令

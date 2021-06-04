@@ -1,0 +1,8 @@
+word 快捷鍵
+  Ctrl+Shift+N   应用"正文"样式
+  Ctrl+Shift+L   应用"列表"样式
+  Ctrl+Shift+C   复制样式
+  Ctrl+Shift+V   粘贴样式
+  Alt+Ctrl+1     应用"标题1"样式
+  Alt+Ctrl+2     应用"标题2"样式
+  Alt+Ctrl+3     应用"标题3"样式
