@@ -26,8 +26,11 @@
       其它镜像网站也可以
       进入对应版本目录中 > BaseOS > x86_64 > os
       将上述 os 目录url输入至输入栏中,注意
+        https://repo.huaweicloud.com/centos/8.3.2011/isos/x86_64/
+      "URL类型"选择"软件库URL"
+    "软件选择(S)"
         https://repo.huaweicloud.com/centos/8.4.2105/BaseOS/x86_64/os/
-      
+
 vi/vim
   命令模式
   输入模式
