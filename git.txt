@@ -236,7 +236,6 @@ HEAD^^^ / HEAD^3
   上上上一个版本
 ...
 
-
 ☀新增的文件是不会被存入缓存的
   新增文件不是版本控制中的文件
   你需要先执行 git add . 将其加入版本控制中再缓存
@@ -246,3 +245,9 @@ git reflog
 
 Q:git错误：Unlink of file 'xxx' failed.Should I try again?
 A:关闭编辑 git 维护管理的代码相关的软件即可 
+
+Q:修改 git 提交信息?
+A:git commit --amend 进入 vi 编辑界面
+  单击 i 键进入插入模式,单击 Esc 键进入底线命令模式
+  输入 :wq! 保存并退出 vi
+  详见 Linux 

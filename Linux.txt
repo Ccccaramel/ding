@@ -1,0 +1,34 @@
+虚拟机下载与 Linux 安装
+  下载 CentOS 的 ISO 镜像文件
+    https://mirrors.cqu.edu.cn/CentOS/
+    选择最新版本
+    进入 isos > x86_64
+    找到 CentOS-x.x.x-x86_64-boot.iso 点击下载
+  虚拟机下载与安装
+    https://my.vmware.com/en/web/vmware/downloads/#all_products
+    页面搜索"VMware Workstation Player"
+    点击"Download Product",选择最新版本下载"GO TO DOWNLOADS"
+    安装后打开并点击"创建新虚拟机(N)"
+    选择已下载好的 iso 文件,当然也可以选择"稍后安装操作系统(S)"之后再设置
+    选择与 iso 对应的"客户操作系统"和"版本"
+    为虚拟机命名并指定其位置
+    磁盘相关按默认配置即可
+    最后一步点击"完成"即可,若之前没有配置 iso 文件可点击"自定义硬件(C)...",选中"新CD/DVD(IDE)"勾选"使用 ISO 映像文件(M):"选择 iso 镜像文件
+  首次开机配置
+    选择"Install CentOS Linux 8",注意你选中的字体颜色(我的是白色)
+    选择语言
+    "根密码可(R)"建议用户名和密码都为"root"
+    点击进入"网络与主机名(N)"将"以太网"置为开启状态(前提本机已联网)
+    "安装目的地(D)"选中"本地标准磁盘"的即可
+    "安装源(I)"
+      华为镜像网站
+          https://repo.huaweicloud.com/
+      其它镜像网站也可以
+      进入对应版本目录中 > BaseOS > x86_64 > os
+      将上述 os 目录url输入至输入栏中,注意
+        https://repo.huaweicloud.com/centos/8.4.2105/BaseOS/x86_64/os/
+      
+vi/vim
+  命令模式
+  输入模式
+  底线命令模式
